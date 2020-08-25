@@ -62,7 +62,7 @@ const Map = ({ hasPermissionInitial }) => {
           latitudeDelta: delta,
           longitudeDelta: delta,
         }}>
-        <Marker coordinate={coords} />
+        {hasPermission && <Marker coordinate={coords} />}
       </S.Map>
     </S.AreaView>
   );
