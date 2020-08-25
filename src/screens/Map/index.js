@@ -5,8 +5,8 @@ import Geolocation from 'react-native-geolocation-service';
 import {
   getLocationPermisionAndroid,
   getLocationPermisionIos,
-  isIos,
-} from '../../helpers';
+} from '../../helpers/geolocation';
+import { isIos } from '../../helpers/platform';
 
 import * as S from './styled';
 

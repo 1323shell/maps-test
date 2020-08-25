@@ -1,7 +1,5 @@
-import { PermissionsAndroid, Platform } from 'react-native';
+import { PermissionsAndroid } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
-
-export const isIos = Platform.OS === 'ios';
 
 export const checkLocationPermissionAndroid = () =>
   PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);

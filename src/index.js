@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { checkLocationPermissionAndroid, isIos } from './helpers';
+import { checkLocationPermissionAndroid } from './helpers/geolocation';
+import { isIos } from './helpers/platform';
 
 import Map from './screens/Map';
 
