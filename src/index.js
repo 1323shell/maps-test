@@ -2,31 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import {
-  checkLocationPermissionAndroid,
-  checkLocationPermissionIos,
-  isIos,
-} from './helpers';
+import { checkLocationPermissionAndroid, isIos } from './helpers';
 
 import Map from './screens/Map';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [hasRendered, setHasRendered] = useState(false);
+  const [hasRendered, setHasRendered] = useState(isIos);
   const [hasPermissionInitial, setHasPermissionInitial] = useState(false);
 
   useEffect(() => {
-    const getGranted = async () => {
-      const granted = isIos
-        ? await checkLocationPermissionIos()
-        : await checkLocationPermissionAndroid();
+    if (!isIos) {
+      const getGranted = async () => {
+        const granted = await checkLocationPermissionAndroid();
 
-      setHasPermissionInitial(granted);
-      setHasRendered(true);
-    };
+        setHasPermissionInitial(granted);
+        setHasRendered(true);
+      };
 
-    getGranted();
+      getGranted();
+    }
   }, [setHasPermissionInitial, setHasRendered]);
 
   return (

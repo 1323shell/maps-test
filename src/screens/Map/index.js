@@ -15,7 +15,6 @@ const Map = ({ hasPermissionInitial }) => {
     latitude: 0,
     longitude: 0,
   });
-  console.log('hasPermissionInitial', hasPermissionInitial);
   const [hasPermission, setHasPermission] = useState(hasPermissionInitial);
 
   const delta = useMemo(() => (hasPermission ? 0.005 : 100), [hasPermission]);
@@ -42,7 +41,7 @@ const Map = ({ hasPermissionInitial }) => {
         await getLocationRequest();
       } else {
         const granted = isIos
-          ? await getLocationPermisionIos
+          ? await getLocationPermisionIos()
           : await getLocationPermisionAndroid();
 
         if (granted) {

@@ -8,6 +8,10 @@ target 'mapsTest' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  # react-native-maps dependencies
+  pod 'GoogleMaps'  # Remove this line if you don't want to support GoogleMaps on iOS
+  pod 'Google-Maps-iOS-Utils' # Remove this line if you don't want to support GoogleMaps on iOS  
+
   target 'mapsTestTests' do
     inherit! :complete
     # Pods for testing
